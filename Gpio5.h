@@ -21,18 +21,11 @@
 
 enum gpio_function_rp1
 {
-    //  GPIO_FUNC_XIP = 0,
-    // GPIO_FUNC_SPI = 1,
-    // GPIO_FUNC_UART = 2,
     GPIO_FUNC_I2C = 3,
     GPIO_FUNC_PWM1 = 0,
     GPIO_FUNC_SPI = 0,
     GPIO_FUNC_PWM2 = 3,
     GPIO_FUNC_RIO = 5,
-    // GPIO_FUNC_PIO0 = 6,
-    // GPIO_FUNC_PIO1 = 7,
-    // GPIO_FUNC_GPCK = 8,
-    // GPIO_FUNC_USB = 9,
     GPIO_FUNC_NULL = 0x1f
 };
 
