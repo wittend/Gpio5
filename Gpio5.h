@@ -1,6 +1,6 @@
 #ifndef GPIO5_H
 #define GPIO5_H
-#undef  _POSIX_C_SOURCE
+#undef _POSIX_C_SOURCE
 #define _POSIX_C_SOURCE 199309L
 #include <stdio.h>
 #include <stdint.h>
@@ -249,19 +249,6 @@ typedef i2cregs *I2C;
 #define I2CClock 200000000
 #define I2C_TX_BUFFER_DEPTH 32;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Function declarations
 int rp1_Init();
 
@@ -333,18 +320,14 @@ int spi_write32_read32_blocking(SPI spi, const uint32_t *src, uint32_t *dst, siz
 int spi_write32_blocking(SPI spi, const uint32_t *src, size_t len);
 int spi_read32_blocking(SPI spi, uint32_t repeated_tx_data, uint32_t *dst, size_t len);
 
-
 uint32_t i2c_init(I2C i2c, uint32_t baudrate);
 int32_t i2c_set_baudrate(I2C i2c, int32_t baudrate);
 void i2c_reset(I2C i2c);
-
-
 
 int i2c_read_blocking(I2C i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop);
 int i2c_write_blocking(I2C i2c, uint8_t addr, const uint8_t *src, size_t len, bool nostop);
 
 int i2c_write_timeout_per_char_us(I2C i2c, uint8_t addr, const uint8_t *src, size_t len, bool nostop, uint32_t timeout_per_char_us);
 int i2c_read_timeout_per_char_us(I2C i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop, uint32_t timeout_per_char_us);
-
 
 #endif
