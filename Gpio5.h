@@ -2,6 +2,7 @@
 #define GPIO5_H
 #undef _POSIX_C_SOURCE
 #define _POSIX_C_SOURCE 199309L
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -96,7 +97,6 @@ typedef struct
 #define PWM ((PWMregs *)(PWMBase + 0x14 / 4))
 
 // SPI
-
 extern uint32_t *PERIBase;
 
 volatile typedef struct
