@@ -1,4 +1,4 @@
-Gpio5 For The Pi 5, P500 and CM5
+# Gpio5 For The Pi 5, P500 and CM5
 
 The Gpio5 library provides functions to let you work with
 the GPIO, PWM, I2C and SPI interfaces provided by the RP1
