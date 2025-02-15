@@ -13,5 +13,5 @@ The reason is simply that API functions that check for
 validity of parameters are inefficient. For example. none
 of the GPIO functions check that the GPIO number supplied
 is valid. The reason is that in most cases the GPIO number
-to be used is known a compile time and checking for correctness
+to be used is known at compile time and checking for correctness
 at runtime is a waste. 
