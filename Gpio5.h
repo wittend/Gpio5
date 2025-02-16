@@ -261,14 +261,14 @@ void gpio_set_dir_in_masked(uint32_t mask);
 void gpio_set_dir_out_masked(uint32_t mask);
 void gpio_set_dir_masked(uint32_t mask, uint32_t value);
 
-inline void gpio_set_mask(uint32_t mask);
-inline void gpio_clr_mask(uint32_t mask);
-inline void gpio_xor_mask(uint32_t mask);
+void gpio_set_mask(uint32_t mask);
+void gpio_clr_mask(uint32_t mask);
+void gpio_xor_mask(uint32_t mask);
 
-inline void gpio_put(uint32_t gpio, bool value);
-inline void gpio_put_masked(uint32_t mask, uint32_t value);
-inline bool gpio_get(uint32_t gpio);
-inline uint32_t gpio_get_all(void);
+void gpio_put(uint32_t gpio, bool value);
+void gpio_put_masked(uint32_t mask, uint32_t value);
+bool gpio_get(uint32_t gpio);
+uint32_t gpio_get_all(void);
 void gpio_set_function(uint32_t gpio, enum gpio_function_rp1 fn);
 
 void gpio_init(uint32_t gpio);
