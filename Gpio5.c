@@ -131,22 +131,22 @@ void gpio_set_dir_masked(uint32_t mask, uint32_t value)
 }
 
 // SETGET GPIO
-void gpio_set_mask(uint32_t mask)
+inline void gpio_set_mask(uint32_t mask)
 {
     rioSET->Out = mask;
 }
 
-void gpio_clr_mask(uint32_t mask)
+inline void gpio_clr_mask(uint32_t mask)
 {
     rioCLR->Out = mask;
 }
-void gpio_xor_mask(uint32_t mask)
+inline void gpio_xor_mask(uint32_t mask)
 {
 
     rioXOR->Out = mask;
 }
 
-void gpio_put(uint32_t gpio, bool value)
+inline void gpio_put(uint32_t gpio, bool value)
 {
     uint32_t mask = 1ul << gpio;
     if (value)
@@ -155,17 +155,17 @@ void gpio_put(uint32_t gpio, bool value)
         gpio_clr_mask(mask);
 }
 
-void gpio_put_masked(uint32_t mask, uint32_t value)
+inline void gpio_put_masked(uint32_t mask, uint32_t value)
 {
     rioXOR->Out = (rio->Out ^ value) & mask;
 }
 
-bool gpio_get(uint32_t gpio)
+inline bool gpio_get(uint32_t gpio)
 {
     return rio->In & (1u << gpio);
 }
 
-uint32_t gpio_get_all(void)
+inline uint32_t gpio_get_all(void)
 {
     return rio->In;
 }
