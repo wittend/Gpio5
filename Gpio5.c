@@ -339,9 +339,9 @@ int pwm_set_frequency_duty(int32_t gpio, int32_t freq, int dutyPercent)
 {
     int32_t div = PWMCLK->PWM0_DIV_INT;
     int32_t frac = PWMCLK->PWM0_DIV_FRAC;
-    int32_t pwmf = 50000000 / div;
-    int32_t range = pwmf / freq;
-    int32_t duty = range * dutyPercent / 1000;
+    int32_t pwmf = PWMClock / div;
+    int32_t range = pwmf / freq-1;
+    int32_t duty = range * dutyPercent / 1000+1;
     pwm_set_range_duty_phase(gpio, range, duty, 0);
 }
 
