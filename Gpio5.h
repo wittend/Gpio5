@@ -30,17 +30,6 @@ enum gpio_function_rp1
     GPIO_FUNC_NULL = 0x1f
 };
 
-enum pwm_mode_rp1
-{
-    Zero = 0x0,
-    TrailingEdge = 0x1,
-    PhaseCorrect = 0x2,
-    PDE = 0x3,
-    MSBSerial = 0x4,
-    PPM = 0x5,
-    LeadingEdge = 0x6,
-    LSBSerial = 0x7
-};
 
 enum gpio_slew_rate
 {
@@ -95,6 +84,22 @@ typedef struct
     uint32_t Duty;
 } PWMregs;
 #define PWM ((PWMregs *)(PWMBase + 0x14 / 4))
+
+
+enum pwm_mode_rp1
+{
+    Zero = 0x0,
+    TrailingEdge = 0x1,
+    PhaseCorrect = 0x2,
+    PDE = 0x3,
+    MSBSerial = 0x4,
+    PPM = 0x5,
+    LeadingEdge = 0x6,
+    LSBSerial = 0x7
+};
+
+
+#define PWMClock 50000000
 
 // SPI
 extern uint32_t *PERIBase;
