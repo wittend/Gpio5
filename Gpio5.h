@@ -288,7 +288,6 @@ void gpio_set_slew_rate(uint32_t gpio, enum gpio_slew_rate slew);
 enum gpio_slew_rate gpio_get_slew_rate(uint32_t gpio);
 void gpio_set_drive_strength(uint32_t gpio, enum gpio_drive_strength drive);
 enum gpio_drive_strength gpio_get_drive_strength(uint32_t gpio);
-void test();
 
 // PWM
 int pwm_setup(uint32_t gpio, enum pwm_mode_rp1 mode);
