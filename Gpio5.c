@@ -317,6 +317,7 @@ int pwm_set_invert(int32_t gpio)
         return -1;
     PWM[pwm].Ctrl = PWM[pwm].Ctrl | 0x8;
     *PWMBase = *PWMBase | 0x80000000;
+    return 0;
 }
 int pwm_clr_invert(int32_t gpio)
 {
@@ -325,6 +326,7 @@ int pwm_clr_invert(int32_t gpio)
         return -1;
     PWM[pwm].Ctrl = PWM[pwm].Ctrl & ~0x8ul;
     *PWMBase = *PWMBase | 0x80000000;
+    return 0;
 }
 
 int pwm_set_range_duty_phase(int32_t gpio, uint32_t range, uint32_t duty, uint32_t phase)
@@ -336,6 +338,7 @@ int pwm_set_range_duty_phase(int32_t gpio, uint32_t range, uint32_t duty, uint32
     PWM[pwm].Duty = duty;
     PWM[pwm].Phase = phase;
     *PWMBase = *PWMBase | 0x80000000;
+    return 0;
 }
 
 int pwm_set_frequency_duty(int32_t gpio, int32_t freq, int dutyPercent)
