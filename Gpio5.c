@@ -236,7 +236,7 @@ void gpio_set_drive_strength(uint32_t gpio, enum gpio_drive_strength drive)
 }
 enum gpio_drive_strength gpio_get_drive_strength(uint32_t gpio)
 {
-    return (enum gpio_drive_strength)(pad[gpio] & 0x30) >> 4;
+    return (enum gpio_drive_strength)((pad[gpio] & 0x30) >> 4);
 }
 
 // PWM
@@ -268,6 +268,7 @@ int pwm_enable(uint32_t gpio)
         return -1;
     uint32_t temp = 1 << pwm;
     *PWMBase = *PWMBase | temp | 0x80000000;
+    return 0;
 }
 int pwm_disable(uint32_t gpio)
 {
@@ -277,6 +278,7 @@ int pwm_disable(uint32_t gpio)
     uint32_t temp = 1 << pwm;
     temp = ~temp & 0xf;
     *PWMBase = (*PWMBase & temp) | 0x80000000;
+    return 0;
 }
 
 void pwm_init_clock(void)
@@ -305,6 +307,7 @@ int pwm_setup(uint32_t gpio, enum pwm_mode_rp1 mode)
     }
     PWM[pwm].Ctrl = mode;
     pwm_disable(gpio);
+    return 0;
 }
 
 int pwm_set_invert(int32_t gpio)
@@ -335,7 +338,7 @@ int pwm_set_range_duty_phase(int32_t gpio, uint32_t range, uint32_t duty, uint32
     *PWMBase = *PWMBase | 0x80000000;
 }
 
-int pwm_set_frequency_duty(int32_t gpio, int32_t freq, int dutyPercent)
+void pwm_set_frequency_duty(int32_t gpio, int32_t freq, int dutyPercent)
 {
     int32_t div = PWMCLK->PWM0_DIV_INT;
     int32_t frac = PWMCLK->PWM0_DIV_FRAC;
